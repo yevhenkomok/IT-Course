@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/ECommerce/app/src/main/res/drawable/ic_python.xml" value="0.1755" />
+        <entry key="..\:/Android/ECommerce/app/src/main/res/drawable/ic_shop.xml" value="0.1755" />
+        <entry key="..\:/Android/ECommerce/app/src/main/res/layout/activity_course_page.xml" value="0.25" />
         <entry key="..\:/Android/ECommerce/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Android/ECommerce/app/src/main/res/layout/category_item.xml" value="0.25" />
         <entry key="..\:/Android/ECommerce/app/src/main/res/layout/course_item.xml" value="0.25" />
