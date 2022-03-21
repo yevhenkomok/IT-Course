@@ -3,15 +3,24 @@ package com.example.e_commerce.model;
 public class Course {
 
     int id;
-    String img, title, data, level, color;
+    String img, title, data, level, color, text;
 
-    public Course(int id, String img, String title, String data, String level, String color) {
+    public Course(int id, String img, String title, String data, String level, String color, String text) {
         this.id = id;
         this.img = img;
         this.title = title;
         this.data = data;
         this.level = level;
         this.color = color;
+        this.text = text;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public int getId() {

@@ -1,6 +1,7 @@
 package com.example.e_commerce.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.e_commerce.CoursePage;
 import com.example.e_commerce.R;
 import com.example.e_commerce.model.Course;
 
@@ -36,7 +38,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CourseViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CourseAdapter.CourseViewHolder holder, int position) {
         holder.courseBg.setCardBackgroundColor(Color.parseColor(courses.get(position).getColor()));
 
         int imageId = context.getResources().getIdentifier("ic_" + courses.get(position).getImg(), "drawable", context.getPackageName());
@@ -45,6 +47,22 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         holder.courseTitle.setText(courses.get(position).getTitle());
         holder.courseDate.setText(courses.get(position).getData());
         holder.courseLevel.setText(courses.get(position).getLevel());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, CoursePage.class);
+
+                intent.putExtra("courseBg", Color.parseColor(courses.get(holder.getAdapterPosition()).getColor())); //Не рассматривать позицию как фиксированную; используйте только немедленно и вызовите holder.getAdapterPosition(), чтобы найти ее позже» Color.parseColor(courses.get(position).getColor())
+                intent.putExtra("courseImage", imageId);
+                intent.putExtra("courseTitle", courses.get(holder.getAdapterPosition()).getTitle());
+                intent.putExtra("courseDate", courses.get(holder.getAdapterPosition()).getData());
+                intent.putExtra("courseLevel", courses.get(holder.getAdapterPosition()).getLevel());
+                intent.putExtra("courseText", courses.get(holder.getAdapterPosition()).getText());
+
+                context.startActivity(intent);
+            }
+        });
 
     }
 
